@@ -2,7 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
+import logger from 'redux-logger';
 import registerServiceWorker from './registerServiceWorker';
+// Redux
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const firstReducer = (state=0, action) => {
+    return state
+}
+
+// create Redux store
+const storeInstance = createStore(
+    combineReducers({
+       firstReducer
+    }),    
+    applyMiddleware(logger)
+);
+
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
+
 registerServiceWorker();
