@@ -8,15 +8,15 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-const firstReducer = (state=0, action) => {
+const firstReducer = (state = 0, action) => {
     return state
 }
 
 // create Redux store
 const storeInstance = createStore(
     combineReducers({
-       firstReducer
-    }),    
+        firstReducer
+    }),
     applyMiddleware(logger)
 );
 

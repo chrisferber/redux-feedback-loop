@@ -22,12 +22,24 @@ class App extends Component {
         </div>
         <Router>
           <div className="routes">
-            <Route exact path="/" Component={Feeling} />
-            <Route path="/understanding" Component={Understanding} />
-            <Route path="/supported" Component={Supported} />
-            <Route path="/comments" Component={Comments} />
-            <Route path="/thankyou" Component={Thankyou} />
-            <Route path="/admin" Component={Admin} />
+            <Route exact path="/">
+              <Feeling />
+            </Route>
+            <Route path="/understanding">
+              <Understanding />
+            </Route>
+            <Route path="/supported">
+              <Supported />
+            </Route>
+            <Route path="/comments">
+              <Comments />
+            </Route>
+            <Route path="/thankyou">
+              <Thankyou />
+            </Route>
+            <Route path="/admin">
+              <Admin />
+            </Route>
           </div>
         </Router>
       </>
