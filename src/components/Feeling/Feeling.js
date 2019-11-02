@@ -24,7 +24,11 @@ class Feeling extends Component {
     }
 
     handleNextButtonClick = () => {
+        if (this.state.submission.rating === '' || this.state.submission.rating < 0 || this.state.submission.rating > 5) {
+            alert('Invalid input')
+        } else {
         this.props.dispatch({type: 'FEELING_RATING', payload: this.state.submission});
+        }
     }
 
     render() {
