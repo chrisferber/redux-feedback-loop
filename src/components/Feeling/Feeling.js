@@ -19,15 +19,14 @@ class Feeling extends Component {
                 rating: event.target.value,
             }
         })
-        console.log(this.state.submission);
-        
     }
 
     handleNextButtonClick = () => {
         if (this.state.submission.rating === '' || this.state.submission.rating < 0 || this.state.submission.rating > 5) {
-            alert('Invalid input')
+            alert('Invalid input, please enter a number 1-5');
         } else {
-        this.props.dispatch({type: 'FEELING_RATING', payload: this.state.submission});
+            this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
+            return <Link to="/understanding"></Link>;
         }
     }
 
@@ -41,7 +40,7 @@ class Feeling extends Component {
                 <Router>
                     <div>
                         <button onClick={this.handleNextButtonClick} >
-                            <Link to="/understanding">Next</Link>
+                            Next
                         </button>
                     </div>
                 </Router>
@@ -52,6 +51,6 @@ class Feeling extends Component {
 
 const mapReduxStateToProps = (ReduxState) => {
     return ReduxState;
-  }
+}
 
 export default connect(mapReduxStateToProps)(Feeling);
