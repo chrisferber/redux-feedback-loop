@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import { HashRouter as Router, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 class Comments extends Component {
@@ -22,4 +23,8 @@ class Comments extends Component {
     }
 }
 
-export default Comments;
+const mapReduxStateToProps = (ReduxState) => {
+    return ReduxState;
+  }
+
+export default connect(mapReduxStateToProps)(Comments);

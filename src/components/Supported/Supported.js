@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import { HashRouter as Router, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Supported extends Component {
     render() {
@@ -21,4 +22,8 @@ class Supported extends Component {
     }
 }
 
-export default Supported;
+const mapReduxStateToProps = (ReduxState) => {
+    return ReduxState;
+  }
+
+export default connect(mapReduxStateToProps)(Supported);

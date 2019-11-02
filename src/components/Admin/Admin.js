@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
+import { connect } from 'react-redux';
+
 
 
 class Admin extends Component {
@@ -12,4 +14,8 @@ class Admin extends Component {
     }
 }
 
-export default Admin;
+const mapReduxStateToProps = (ReduxState) => {
+    return ReduxState;
+  }
+
+export default connect(mapReduxStateToProps)(Admin);
