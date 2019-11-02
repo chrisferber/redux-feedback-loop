@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 
-class Understand extends Component {
+class Understanding extends Component {
   render() {
     return (
-      <div className="Understand">
+      <div className="Understanding">
         <h1>Understanding!</h1>
       </div>
     );
   }
 }
 
-export default Understand;
+export default Understanding;
