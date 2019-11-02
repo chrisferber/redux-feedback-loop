@@ -8,14 +8,17 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-const firstReducer = (state = 0, action) => {
-    return state
+const catchRatings = (state = [], action) => {
+    if (action.type === 'FEELING_RATING') {
+        return [ action.payload ];
+    }
+    return state;
 }
 
 // create Redux store
 const storeInstance = createStore(
     combineReducers({
-        firstReducer
+        catchRatings,
     }),
     applyMiddleware(logger)
 );
