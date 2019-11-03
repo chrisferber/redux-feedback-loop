@@ -9,7 +9,7 @@ class Understanding extends Component {
     state = {
         toSupported: false,
         submission: {
-            question: 'feeling',
+            question: 'Understanding',
             rating: '',
         }
     }
@@ -41,7 +41,7 @@ class Understanding extends Component {
         return (
             <>
             <div className="Understanding">
-                <p>How are you feeling today?</p>
+                <p>How well are you understanding the content?</p>
                 <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.rating} />
             </div>
                 <div>

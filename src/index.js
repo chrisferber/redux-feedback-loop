@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 
 const catchRatings = (state = [], action) => {
     if (action.type === 'FEELING_RATING') {
-        return [ action.payload ];
+        return [ ...state, action.payload ];
     }
     return state;
 }

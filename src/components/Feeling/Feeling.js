@@ -41,7 +41,7 @@ class Feeling extends Component {
             <>
                 <div className="Feeling">
                     <p>How are you feeling today?</p>
-                    <input onChange={this.catchInput} type="number" placeholder="rating" value={this.state.rating} />
+                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.rating} />
                 </div>
                     <div>
                         <button onClick={this.handleNextButtonClick} >
