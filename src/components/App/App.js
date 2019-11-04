@@ -6,6 +6,7 @@ import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Supported from '../Supported/Supported';
 import Comments from '../Comments/Comments';
+import Review from '../Review/Review';
 import Thankyou from '../Thankyou/Thankyou';
 import Admin from '../Admin/Admin';
 
@@ -33,6 +34,9 @@ class App extends Component {
             </Route>
             <Route path="/comments">
               <Comments />
+            </Route>
+            <Route path="/review">
+              <Review />
             </Route>
             <Route path="/thankyou">
               <Thankyou />

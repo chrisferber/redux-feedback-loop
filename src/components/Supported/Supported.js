@@ -8,13 +8,14 @@ class Supported extends Component {
     state = {
         toComments: false,
         submission: {
-            question: 'Supported',
+            ratingType: 'Support',
             rating: '',
         }
     }
 
     catchInput = (event) => {
         this.setState({
+            ...this.state,
             submission: {
                 ...this.state.submission,
                 rating: event.target.value,
@@ -27,27 +28,27 @@ class Supported extends Component {
             alert('Invalid input, please enter a number 0-5');
         } else {
             this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
-            this.setState({toComments: true});
+            this.setState({ toComments: true });
         }
     }
 
     render() {
-    
-            if (this.state.toComments === true) {
-                return <Redirect to='/comments' />
-            }
-    
-            return (
-                <>
+
+        if (this.state.toComments === true) {
+            return <Redirect to='/comments' />
+        }
+
+        return (
+            <>
                 <div className="Supported">
                     <p>How well are you being supported?</p>
-                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.rating} />
+                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.submission.rating} />
                 </div>
-                    <div>
-                        <button onClick={this.handleNextButtonClick} >
-                            Next
+                <div>
+                    <button onClick={this.handleNextButtonClick} >
+                        Next
                         </button>
-                    </div>
+                </div>
             </>
         );
     }
@@ -55,6 +56,6 @@ class Supported extends Component {
 
 const mapReduxStateToProps = (ReduxState) => {
     return ReduxState;
-  }
+}
 
 export default connect(mapReduxStateToProps)(Supported);

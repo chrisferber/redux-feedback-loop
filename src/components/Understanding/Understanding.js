@@ -9,13 +9,14 @@ class Understanding extends Component {
     state = {
         toSupported: false,
         submission: {
-            question: 'Understanding',
+            ratingType: 'Understanding',
             rating: '',
         }
     }
 
     catchInput = (event) => {
         this.setState({
+            ...this.state,
             submission: {
                 ...this.state.submission,
                 rating: event.target.value,
@@ -28,7 +29,7 @@ class Understanding extends Component {
             alert('Invalid input, please enter a number 0-5');
         } else {
             this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
-            this.setState({toSupported: true});
+            this.setState({ toSupported: true });
         }
     }
 
@@ -40,22 +41,22 @@ class Understanding extends Component {
 
         return (
             <>
-            <div className="Understanding">
-                <p>How well are you understanding the content?</p>
-                <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.rating} />
-            </div>
+                <div className="Understanding">
+                    <p>How well are you understanding the content?</p>
+                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.submission.understandingRating} />
+                </div>
                 <div>
                     <button onClick={this.handleNextButtonClick} >
                         Next
                     </button>
                 </div>
-        </>
+            </>
         );
     }
 }
 
 const mapReduxStateToProps = (ReduxState) => {
     return ReduxState;
-  }
+}
 
 export default connect(mapReduxStateToProps)(Understanding);

@@ -16,6 +16,6 @@ class Admin extends Component {
 
 const mapReduxStateToProps = (ReduxState) => {
     return ReduxState;
-  }
+}
 
 export default connect(mapReduxStateToProps)(Admin);

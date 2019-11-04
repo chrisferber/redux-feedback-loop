@@ -8,13 +8,14 @@ class Feeling extends Component {
     state = {
         toUnderstanding: false,
         submission: {
-            question: 'feeling',
+            ratingType: 'Feelings',
             rating: '',
         }
     }
 
     catchInput = (event) => {
         this.setState({
+            ...this.state,
             submission: {
                 ...this.state.submission,
                 rating: event.target.value,
@@ -27,7 +28,7 @@ class Feeling extends Component {
             alert('Invalid input, please enter a number 0-5');
         } else {
             this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
-            this.setState({toUnderstanding: true});
+            this.setState({ toUnderstanding: true });
         }
     }
 
@@ -41,13 +42,13 @@ class Feeling extends Component {
             <>
                 <div className="Feeling">
                     <p>How are you feeling today?</p>
-                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.rating} />
+                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.submission.rating} />
                 </div>
-                    <div>
-                        <button onClick={this.handleNextButtonClick} >
-                            Next
+                <div>
+                    <button onClick={this.handleNextButtonClick} >
+                        Next
                         </button>
-                    </div>
+                </div>
             </>
         );
     }

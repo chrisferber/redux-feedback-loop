@@ -8,7 +8,7 @@ class Comments extends Component {
 
     state = {
         submission: {
-            question: 'Comments',
+            ratingType: 'Comments',
             rating: '',
         }
     }
@@ -23,7 +23,7 @@ class Comments extends Component {
     }
 
     handleNextButtonClick = () => {
-            this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
+        this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
     }
 
     render() {
@@ -31,12 +31,12 @@ class Comments extends Component {
             <>
                 <div className="Comments">
                     <p>Any comments you want to leave?</p>
-                <input onChange={this.catchInput} type="text" placeholder="Optional" value={this.state.rating} />
+                    <input onChange={this.catchInput} type="text" placeholder="Optional" value={this.state.submission.rating} />
                 </div>
                 <Router>
                     <div>
                         <button onClick={this.handleNextButtonClick}>
-                            <Link to="/thankyou">Next</Link>
+                            <Link to="/review">Next</Link>
                         </button>
                     </div>
                 </Router>
@@ -47,6 +47,6 @@ class Comments extends Component {
 
 const mapReduxStateToProps = (ReduxState) => {
     return ReduxState;
-  }
+}
 
 export default connect(mapReduxStateToProps)(Comments);
