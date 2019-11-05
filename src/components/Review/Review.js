@@ -6,42 +6,6 @@ import { connect } from 'react-redux';
 
 class Review extends Component {
 
-    // componentDidMount = () => {
-    //     this.createStudentObject();
-    // }
-
-    // createStudentObject = (rating) => {
-    //     if (rating.ratingType === 'Feelings') {
-    //         this.setState({
-    //             student: {
-    //                 ...this.state.student,
-    //                 feelingRating: rating.rating,
-    //             }
-    //         })
-    //     } else if (rating.ratingType === 'Understanding') {
-    //         this.setState({
-    //             student: {
-    //                 ...this.state.student,
-    //                 understandingRating: rating.rating,
-    //             }
-    //         })
-    //     } else if (rating.ratingType === 'Support') {
-    //         this.setState({
-    //             student: {
-    //                 ...this.state.student,
-    //                 supportRating: rating.rating,
-    //             }
-    //         })
-    //     } else if (rating.ratingType === 'Comments') {
-    //         this.setState({
-    //             student: {
-    //                 ...this.state.student,
-    //                 comments: rating.rating,
-    //             }
-    //         })
-    //     }
-    // }
-
     handleSubmitButtonClick = () => {
         axios({
             method: 'POST',
@@ -63,12 +27,6 @@ class Review extends Component {
                     <span>
                         <h3>Review Your Feedback</h3>
                     </span>
-                    {/* {this.props.catchRatings.map((rating, i) => {
-                        return (
-                            <div key={i}>{rating.ratingType}: {rating.rating}</div>
-                        )
-                    })} */}
-
                     <ul>
                         <li>
                             Feeling: {this.props.catchRatings.feeling}
@@ -91,8 +49,6 @@ class Review extends Component {
                         </button>
                     </div>
                 </Router>
-                {JSON.stringify(this.props, null, 2)}
-                {JSON.stringify(this.state, null, 2)}
             </>
         );
     }
