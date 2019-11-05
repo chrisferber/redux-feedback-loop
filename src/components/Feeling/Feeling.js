@@ -7,27 +7,21 @@ class Feeling extends Component {
 
     state = {
         toUnderstanding: false,
-        submission: {
-            ratingType: 'Feelings',
-            rating: '',
-        }
+        feeling: '',
     }
 
     catchInput = (event) => {
         this.setState({
             ...this.state,
-            submission: {
-                ...this.state.submission,
-                rating: event.target.value,
-            }
+            feeling: event.target.value,
         })
     }
 
     handleNextButtonClick = () => {
-        if (this.state.submission.rating === '' || this.state.submission.rating < 0 || this.state.submission.rating > 5) {
+        if (this.state.feeling === '' || this.state.feeling < 0 || this.state.feeling > 5) {
             alert('Invalid input, please enter a number 0-5');
         } else {
-            this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
+            this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.feeling });
             this.setState({ toUnderstanding: true });
         }
     }
@@ -42,7 +36,7 @@ class Feeling extends Component {
             <>
                 <div className="Feeling">
                     <p>How are you feeling today?</p>
-                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.submission.rating} />
+                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.feeling} />
                 </div>
                 <div>
                     <button onClick={this.handleNextButtonClick} >

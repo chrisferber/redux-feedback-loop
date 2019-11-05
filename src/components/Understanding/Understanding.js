@@ -8,27 +8,21 @@ class Understanding extends Component {
 
     state = {
         toSupported: false,
-        submission: {
-            ratingType: 'Understanding',
-            rating: '',
-        }
+        understanding: '',
     }
 
     catchInput = (event) => {
         this.setState({
             ...this.state,
-            submission: {
-                ...this.state.submission,
-                rating: event.target.value,
-            }
+            understanding: event.target.value,
         })
     }
 
     handleNextButtonClick = () => {
-        if (this.state.submission.rating === '' || this.state.submission.rating < 0 || this.state.submission.rating > 5) {
+        if (this.state.understanding === '' || this.state.understanding < 0 || this.state.understanding > 5) {
             alert('Invalid input, please enter a number 0-5');
         } else {
-            this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
+            this.props.dispatch({ type: 'UNDERSTANDING_RATING', payload: this.state.understanding });
             this.setState({ toSupported: true });
         }
     }
@@ -43,7 +37,7 @@ class Understanding extends Component {
             <>
                 <div className="Understanding">
                     <p>How well are you understanding the content?</p>
-                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.submission.understandingRating} />
+                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.understanding} />
                 </div>
                 <div>
                     <button onClick={this.handleNextButtonClick} >

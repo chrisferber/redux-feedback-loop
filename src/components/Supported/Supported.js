@@ -7,27 +7,21 @@ class Supported extends Component {
 
     state = {
         toComments: false,
-        submission: {
-            ratingType: 'Support',
-            rating: '',
-        }
+        support: '',
     }
 
     catchInput = (event) => {
         this.setState({
             ...this.state,
-            submission: {
-                ...this.state.submission,
-                rating: event.target.value,
-            }
+            support: event.target.value,
         })
     }
 
     handleNextButtonClick = () => {
-        if (this.state.submission.rating === '' || this.state.submission.rating < 0 || this.state.submission.rating > 5) {
+        if (this.state.support === '' || this.state.support < 0 || this.state.support > 5) {
             alert('Invalid input, please enter a number 0-5');
         } else {
-            this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
+            this.props.dispatch({ type: 'SUPPORT_RATING', payload: this.state.support });
             this.setState({ toComments: true });
         }
     }
@@ -42,7 +36,7 @@ class Supported extends Component {
             <>
                 <div className="Supported">
                     <p>How well are you being supported?</p>
-                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.submission.rating} />
+                    <input onChange={this.catchInput} type="number" placeholder="rating (0-5)" value={this.state.supported} />
                 </div>
                 <div>
                     <button onClick={this.handleNextButtonClick} >

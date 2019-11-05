@@ -6,38 +6,40 @@ import { connect } from 'react-redux';
 
 class Review extends Component {
 
-    state = {
-        student: {
-            feelingRating: '',
-            understandingRating: '',
-            supportRating: '',
-            comments: '',
-        }
-    }
-
     // componentDidMount = () => {
-    //     createStudentObject();
+    //     this.createStudentObject();
     // }
 
-    // createStudentObject = () => {
-
-    //     this.props.catchRatings.map((rating, i) => {
-    //         if (rating.ratingType === 'Feelings') {
-    //             this.setState({
-    //                 student: {
-    //                     ...this.state.student,
-    //                     feelingRating: rating.rating,
-    //                 }
-    //             })
-    //         } else if (rating.ratingType === 'Understanding') {
-    //             this.setState({
-    //                 student: {
-    //                     ...this.state.student,
-    //                     understandingRating: rating.rating,
-    //                 }
-    //             })
-    //         }
-    //     })
+    // createStudentObject = (rating) => {
+    //     if (rating.ratingType === 'Feelings') {
+    //         this.setState({
+    //             student: {
+    //                 ...this.state.student,
+    //                 feelingRating: rating.rating,
+    //             }
+    //         })
+    //     } else if (rating.ratingType === 'Understanding') {
+    //         this.setState({
+    //             student: {
+    //                 ...this.state.student,
+    //                 understandingRating: rating.rating,
+    //             }
+    //         })
+    //     } else if (rating.ratingType === 'Support') {
+    //         this.setState({
+    //             student: {
+    //                 ...this.state.student,
+    //                 supportRating: rating.rating,
+    //             }
+    //         })
+    //     } else if (rating.ratingType === 'Comments') {
+    //         this.setState({
+    //             student: {
+    //                 ...this.state.student,
+    //                 comments: rating.rating,
+    //             }
+    //         })
+    //     }
     // }
 
     handleSubmitButtonClick = () => {
@@ -61,13 +63,26 @@ class Review extends Component {
                     <span>
                         <h3>Review Your Feedback</h3>
                     </span>
-                    {this.props.catchRatings.map((rating, i) => {
+                    {/* {this.props.catchRatings.map((rating, i) => {
                         return (
                             <div key={i}>{rating.ratingType}: {rating.rating}</div>
                         )
-                    })}
+                    })} */}
 
-                    {/* <p>{this.props.catchRatings.feelingRating}</p> */}
+                    <ul>
+                        <li>
+                            Feeling: {this.props.catchRatings.feeling}
+                        </li>
+                        <li>
+                            Understanding: {this.props.catchRatings.understanding}
+                        </li>
+                        <li>
+                            Supported: {this.props.catchRatings.support}
+                        </li>
+                        <li>
+                            Comments: {this.props.catchRatings.comments}
+                        </li>
+                    </ul>
                 </div>
                 <Router>
                     <div>

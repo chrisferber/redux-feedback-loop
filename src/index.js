@@ -8,9 +8,15 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-const catchRatings = (state = [], action) => {
+const catchRatings = (state = {}, action) => {
     if (action.type === 'FEELING_RATING') {
-        return [ ...state, action.payload ];
+        return { ...state, feeling: action.payload };
+    } else if (action.type === 'UNDERSTANDING_RATING') {
+        return { ...state, understanding: action.payload };
+    } else if (action.type === 'SUPPORT_RATING') {
+        return { ...state, support: action.payload };
+    } else if (action.type === 'COMMENTS') {
+        return { ...state, comments: action.payload };
     }
     return state;
 }

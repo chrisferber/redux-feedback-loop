@@ -7,23 +7,17 @@ import { connect } from 'react-redux';
 class Comments extends Component {
 
     state = {
-        submission: {
-            ratingType: 'Comments',
-            rating: '',
-        }
+        comments: '',
     }
 
     catchInput = (event) => {
         this.setState({
-            submission: {
-                ...this.state.submission,
-                rating: event.target.value,
-            }
+            comments: event.target.value,
         })
     }
 
     handleNextButtonClick = () => {
-        this.props.dispatch({ type: 'FEELING_RATING', payload: this.state.submission });
+        this.props.dispatch({ type: 'COMMENTS', payload: this.state.comments });
     }
 
     render() {
@@ -31,7 +25,7 @@ class Comments extends Component {
             <>
                 <div className="Comments">
                     <p>Any comments you want to leave?</p>
-                    <input onChange={this.catchInput} type="text" placeholder="Optional" value={this.state.submission.rating} />
+                    <input onChange={this.catchInput} type="text" placeholder="Optional" value={this.state.comments} />
                 </div>
                 <Router>
                     <div>
