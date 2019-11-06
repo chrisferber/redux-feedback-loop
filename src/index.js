@@ -17,6 +17,8 @@ const catchRatings = (state = {}, action) => {
         return { ...state, support: action.payload };
     } else if (action.type === 'COMMENTS') {
         return { ...state, comments: action.payload };
+    } else if (action.type === 'RESET_FEEDBACK') {
+        return {};
     }
     return state;
 }
